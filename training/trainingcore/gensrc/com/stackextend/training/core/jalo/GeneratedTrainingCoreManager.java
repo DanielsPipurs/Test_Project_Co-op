@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at May 15, 2019 1:32:29 PM                     ---
+ * --- Generated at May 21, 2019 5:36:20 PM                     ---
  * ----------------------------------------------------------------
  */
 package com.stackextend.training.core.jalo;
@@ -11,6 +11,7 @@ import com.stackextend.training.core.jalo.ApparelProduct;
 import com.stackextend.training.core.jalo.ApparelSizeVariantProduct;
 import com.stackextend.training.core.jalo.ApparelStyleVariantProduct;
 import com.stackextend.training.core.jalo.ElectronicsColorVariantProduct;
+import com.training.core.jalo.contents.components.CustomTestComponent;
 import de.hybris.platform.jalo.Item;
 import de.hybris.platform.jalo.Item.AttributeMode;
 import de.hybris.platform.jalo.JaloBusinessException;
@@ -122,6 +123,32 @@ public abstract class GeneratedTrainingCoreManager extends Extension
 	public ApparelStyleVariantProduct createApparelStyleVariantProduct(final Map attributeValues)
 	{
 		return createApparelStyleVariantProduct( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public CustomTestComponent createCustomTestComponent(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingCoreConstants.TC.CUSTOMTESTCOMPONENT );
+			return (CustomTestComponent)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating CustomTestComponent : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public CustomTestComponent createCustomTestComponent(final Map attributeValues)
+	{
+		return createCustomTestComponent( getSession().getSessionContext(), attributeValues );
 	}
 	
 	public ElectronicsColorVariantProduct createElectronicsColorVariantProduct(final SessionContext ctx, final Map attributeValues)
