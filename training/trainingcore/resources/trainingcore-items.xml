@@ -129,6 +129,24 @@
                 </attributes>
             </itemtype>
 
+            <itemtype code="NewRegisterLoginComponent" autocreate="true" generate="true" extends="SimpleCMSComponent"
+                      jaloclass="com.training.core.jalo.contents.components.NewRegisterLoginComponent">
+                <attributes>
+                    <attribute type="localized:Media" qualifier="background">
+                        <description>Background</description>
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute type="localized:java.lang.String" qualifier="description">
+                        <description>Description</description>
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute type="localized:java.lang.String" qualifier="link">
+                        <description>Link</description>
+                        <persistence type="property" />
+                    </attribute>
+                </attributes>
+            </itemtype>
+
 
 
         </typegroup>
