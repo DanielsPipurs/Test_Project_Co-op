@@ -12,7 +12,7 @@ $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCata
 # Insert A Page
 
 INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;
-;;pagePaqu;Frequently Asked Questions PAQU Page;ContentPage1Template;/paqu
+;;pageTestPaqu;Frequently Asked Questions PAQU Page;ContentPage1Template;/paqu-blja
 
 # End Of Insert Page
 #
@@ -21,28 +21,22 @@ INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTe
 # Header Component
 
 INSERT_UPDATE Media;code[unique=true];$contentCV[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];;;;
-;productbanner_paqu;;image/jpg;lamborghini.jpg;jar:/test/media/lamborghini.jpg;;;;
+;productbanner_paqu3;;image/jpg;lamborghini.jpg;jar:/test/media/lamborghini.jpg;;;;
 
-INSERT_UPDATE CustomTestComponent;uid[unique=true];$contentCV[unique=true];image(code);link;description;&componentRef
-;testUid2;;productbanner_paqu;/Open-Catalogue/Cameras/Camera-Accessories-%26-Supplies/c/585;Watch this photo;testUid2
+INSERT_UPDATE CustomTestComponent;uid[unique=true];$contentCV[unique=true];image(code, $contentCV);link;description;&componentRef
+;testUid2;;productbanner_paqu3;/Open-Catalogue/Cameras/Camera-Accessories-%26-Supplies/c/585;Watch this photo;testUid2
 
 # End Of Header Component
 #
 
-INSERT_UPDATE Media;code[unique=true];$contentCV[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];;;;
-;productbanner_loginregister;;image/jpg;lamborghini.jpg;jar:/test/media/lamborghini.jpg;;;;
-
-INSERT_UPDATE NewRegisterLoginComponent;uid[unique=true];$contentCV[unique=true];image(code);link;description;&componentRef
-;testUid3;;productbanner_loginregister;/Open-Catalogue/Cameras/Camera-Accessories-%26-Supplies/c/575;Watch this photo;testUid3
-
-
-
+INSERT_UPDATE NewRegisterLoginComponent;uid[unique=true];$contentCV[unique=true];&componentRef
+;testUid3;;testUid3
 #---------------------
 #
 # Content Slot (Components)
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
-;;Section1Slot-pagePaqu;Section1 Slot for paqu You Page;true;testUid2,testUid3
+;;Section1Slot-pageTestPaqu;Section1 Slot for paqu You Page;true;testUid2,testUid3
 
 # End Of Content Slot (Components)
 #
@@ -50,7 +44,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 #
 # Content Slot For Page
 
-INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='testNamePage'];contentSlot(uid,$contentCV)[unique=true]
-;;Section1-pagePaqu;Section1;;Section1Slot-pagePaqu
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='pageTestPaqu'];contentSlot(uid,$contentCV)[unique=true]
+;;Section1-pageTestPaqu;Section1;;Section1Slot-pageTestPaqu
 
 # End Of Content Slot Page
