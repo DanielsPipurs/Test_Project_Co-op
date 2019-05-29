@@ -1,0 +1,15 @@
+#Custom offers components
+$contentCatalog=electronicsContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Online]
+$media=media(code, $contentCV);
+$siteResource=jar:de.hybris.platform.electronicsstore.constants.ElectronicsstoreConstants&/electronicsstore/import/sampledata/contentCatalogs/$contentCatalog
+$category=category(code, $productCV)
+
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
+;;testComponentMedia;$siteResource/images/banners/homepage/TestImg.png;;TestImg.png;;
+
+INSERT_UPDATE TestComponent;$contentCV[unique=true];uid[unique=true];name;compText;buttonText;img(code);&componentRef;url(&linkRef);
+;;testComponent1;My Test Component;"1st Componet";"Button text";testComponentMedia;testComponent1;/trainingstorefront/electronics/en/Open-Catalogue/Cameras/Digital-Cameras/Digital-SLR/c/578
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];active;cmsComponents(&componentRef)
+;;Section5Slot-Homepage;true;testComponent1,

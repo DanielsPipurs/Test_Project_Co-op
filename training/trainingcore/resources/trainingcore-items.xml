@@ -41,6 +41,10 @@
 
         <!-- TypeGroups are for structure of this file only -->
 
+        <typegroup name="TestComponents">
+
+        </typegroup>
+
         <typegroup name="Apparel">
             <itemtype code="ApparelProduct" extends="Product"
                       autocreate="true" generate="true"
@@ -95,6 +99,7 @@
         </typegroup>
 
         <typegroup name="Electronics">
+
             <itemtype code="ElectronicsColorVariantProduct" extends="VariantProduct"
                       autocreate="true" generate="true"
                       jaloclass="com.stackextend.training.core.jalo.ElectronicsColorVariantProduct">
@@ -109,6 +114,34 @@
                     </attribute>
                 </attributes>
             </itemtype>
+            <itemtype code="TestComponent" extends="SimpleCMSComponent"
+                      autocreate="true" generate="true"
+                      jaloclass="com.stackextend.training.core.jalo.TestComponent">
+                <description>Test Comp</description>
+                <attributes>
+                    <attribute qualifier="compText" type="localized:java.lang.String">
+                        <description>comp Text</description>
+                        <modifiers/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="buttonText" type="localized:java.lang.String">
+                        <description>button text</description>
+                        <modifiers/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="url" type="localized:java.lang.String">
+                        <description>button url</description>
+                        <modifiers/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="img" type="localized:Media">
+                        <description>button text</description>
+                        <modifiers/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
         </typegroup>
 
     </itemtypes>

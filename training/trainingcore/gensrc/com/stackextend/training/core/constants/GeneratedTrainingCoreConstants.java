@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at May 15, 2019 1:32:29 PM                     ---
+ * --- Generated at May 29, 2019 1:53:00 PM                     ---
  * ----------------------------------------------------------------
  */
 package com.stackextend.training.core.constants;
@@ -21,6 +21,7 @@ public class GeneratedTrainingCoreConstants
 		public static final String APPARELSTYLEVARIANTPRODUCT = "ApparelStyleVariantProduct".intern();
 		public static final String ELECTRONICSCOLORVARIANTPRODUCT = "ElectronicsColorVariantProduct".intern();
 		public static final String SWATCHCOLORENUM = "SwatchColorEnum".intern();
+		public static final String TESTCOMPONENT = "TestComponent".intern();
 	}
 	public static class Attributes
 	{
