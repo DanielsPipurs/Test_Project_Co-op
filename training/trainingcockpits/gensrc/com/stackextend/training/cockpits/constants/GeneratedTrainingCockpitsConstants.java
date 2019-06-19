@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Jun 18, 2019 1:08:14 PM                     ---
+ * --- Generated at Jun 19, 2019 12:46:43 PM                    ---
  * ----------------------------------------------------------------
  */
 package com.stackextend.training.cockpits.constants;
