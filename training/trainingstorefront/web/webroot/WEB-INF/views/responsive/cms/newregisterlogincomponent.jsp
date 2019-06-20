@@ -7,6 +7,7 @@
 <%--<%@ taglib prefix="formElement" tagdir="/WEB-INF/tags/responsive/formElement"%>--%>
 
 
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -16,12 +17,91 @@
 
 </head>
 <body>
+
+
+<script>
+    function checkPass() {
+        if (document.getElementById('pass').value != document.getElementById('passch').value) {
+            alert('Passwords Doesn Match!')
+            return false;
+        } else return true;
+    }
+</script>
+
+<div class="main-newregister">
+<div class="header" >
+    <h1>Login or Create a Free Account!!!</h1>
+</div>
+<p>Register on Site </p>
+<form method="post" onsubmit="return checkPass()">
+    <select name="gender">
+        <option disabled>Please Select</option>
+        <option value="mrs">MRS</option>
+        <option value="miss">MISS</option>
+        <option value="pro">PRO</option>
+    </select>
+    <div>
+    <input type="text" name="first-name" placeholder="First Name" required/>
+    </div>
+    <div>
+    <input type="text" name="last-name" placeholder="Last Name" required/>
+    </div>
+    <div>
+    <input type="email" name="email" placeholder="Email" required/>
+    </div>
+    <div>
+    <input type="password" name="password" placeholder="Password" id="pass" required>
+    </div>
+    <div>
+    <input type="password" name="repassword" placeholder="Confirm Password" id="passch" required>
+    </div>
+
+    <label class="checkbox"><input type="checkbox" name="subscribe" checked=""><i> </i>This is a sample consent description that will need to be updated or replaced, based on the valid registration consent required.
+    </label>
+    <p>To view other options or to change your settings, go to the Consent Management page in My Account.</p>
+    <label class="checkbox"><input type="checkbox" name="terms" checked=""><i> </i>I am confirming that I have read and agreed with the Terms & Conditions
+    </label>
+
+    <p><input type="submit" value="Register"/></p>
+</form>
+</div>
+<div class="main-newregister">
+    <p>Login on Site </p>
+    <form method="post">
+
+        <br>
+        <input type="email" name="email" placeholder="Email" required/>
+        <br>
+        <input type="password" name="password" placeholder="Password" id="pass" required>
+        <br>
+
+        <p><input type="submit" value="LoginS"/></p>
+    </form>
+</div>
+
+
+
+<%--<form action="mailto:aleksandr.tisanskis@claritylabs.eu" enctype="text/plain">--%>
+    <%--<p><input name="a"> <input type="submit"></p>--%>
+<%--</form>--%>
+
+
+<%--<p><iframe name="area" width="500" height="200"></iframe></p>--%>
+<%--<form action="" target="area">--%>
+    <%--<p><input placeholder="Insert Text" name="text">--%>
+    <%--<p><input type="submit" value="Submit"></p>--%>
+<%--</form>--%>
+
+
+
+
+<%--
 <div class="main-newregister">
     <div class="header" >
         <h1>Login or Create a Free Account!!!</h1>
     </div>
     <p>Register Or Login on Site </p>
-    <form>
+    <form action="paqu-page" method="post">
         <ul class="left-form">
             <h2>New Account:</h2>
             <select>
@@ -82,19 +162,7 @@
 
 </div>
 
-<spring:htmlEscape defaultHtmlEscape="true" />
 
-<c:set var="hideDescription" value="checkout.login.loginAndCheckout" />
-
-<div class="login-page__headline">
-    <spring:theme code="login.title" />
-</div>
-
-<c:if test="${actionNameKey ne hideDescription}">
-    <p>
-        <spring:theme code="login.description" />
-    </p>
-</c:if>
 
 <form:form action="${action}" method="post" commandName="loginForm">
     <c:if test="${not empty message}">
@@ -133,6 +201,6 @@
 
 </body>
 
-</html>
+</html>--%>
 
 
