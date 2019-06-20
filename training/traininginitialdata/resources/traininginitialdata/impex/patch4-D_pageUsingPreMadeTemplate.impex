@@ -1,0 +1,21 @@
+$contentCatalog=electronicsContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$media=media(code, $contentCV);
+$siteResource=jar:de.hybris.platform.electronicsstore.constants.ElectronicsstoreConstants&/electronicsstore/import/sampledata/contentCatalogs/$contentCatalog
+
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+                         ;;testNewContentPage;test Content Page using pre template;LandingPage2Template;testNewPage
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='testNewContentPage'];contentSlot(uid,$contentCV)[unique=true];;;
+                                ;;Section5-t2Page;Section5;;Section5-t2Page;;;
+
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
+                   ;;testExtraMedia3;$siteResource/images/banners/homepage/newImg3.png;;newImg3.png;;
+
+INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;urlLink;media(code,$contentCV)
+                                   ;;mySimpleBanner;Temp banner;mySimpleBanner;/trainingstorefront/electronics/en/testNewPage;testExtraMedia3
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
+                         ;;Section5-t2Page;S5 slot for new comp;true;mySimpleBanner
+
+
