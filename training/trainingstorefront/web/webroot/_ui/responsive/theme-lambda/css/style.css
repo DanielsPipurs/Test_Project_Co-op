@@ -14353,6 +14353,9 @@ form .forgotten-password {
 .main-newregister {
   margin-left: 100px;
 }
+.headerrl {
+  margin: 0 auto;
+}
 .checkout-login {
   padding-left: 30px;
   padding-right: 30px;

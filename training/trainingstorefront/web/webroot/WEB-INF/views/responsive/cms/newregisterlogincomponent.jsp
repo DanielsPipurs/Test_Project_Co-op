@@ -29,7 +29,7 @@
 </script>
 
 <div class="main-newregister">
-<div class="header" >
+<div class="headerrl" >
     <h1>Login or Create a Free Account!!!</h1>
 </div>
 <p>Register on Site </p>
@@ -65,6 +65,7 @@
     <p><input type="submit" value="Register"/></p>
 </form>
 </div>
+<hr>
 <div class="main-newregister">
     <p>Login on Site </p>
     <form method="post">
