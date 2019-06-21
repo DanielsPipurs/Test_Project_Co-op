@@ -1,0 +1,28 @@
+$contentCatalog=electronicsContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$media=media(code, $contentCV);
+$siteResource=jar:de.hybris.platform.electronicsstore.constants.ElectronicsstoreConstants&/electronicsstore/import/sampledata/contentCatalogs/$contentCatalog
+
+INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true][default='testPageTemplate'];validComponentTypes(code);compTypeGroup(code)
+                             ;testParagraph;;;wide
+                             ;testBotBanner;;;wide
+
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
+                   ;;testExtraMedia;$siteResource/images/banners/homepage/newImg.png;;newImg.png;;
+                   ;;testExtraMedia2;$siteResource/images/banners/homepage/newImg2.png;;newImg2.png;;
+
+INSERT_UPDATE TestComponent;$contentCV[unique=true];uid[unique=true];name;compText;buttonText;img(code,$contentCV);&componentRef;url(&linkRef);
+                           ;;testExtraComponent;ExtraComp;"Programming...";"pff...";testExtraMedia;testExtraComponent;/trainingstorefront/electronics/en/testPage
+                           ;;testExtraComponent2;ExtraComp2;"GoT:";"Bran";testExtraMedia2;testExtraComponent2;/trainingstorefront/electronics/en/testPage
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
+                         ;;testBotBannerSlot;test Bot Banner Slot;true;testExtraComponent
+                         ;;testBotBannerSlot2;test Bot Banner Slot2;true;testExtraComponent2
+
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='testPageTemplate'];contentSlot(uid,$contentCV)[unique=true]
+                                    ;;testBotBannerSlot-tPage;testBotBanner;;testBotBannerSlot
+                                    ;;testBotBannerSlot2-tPage;testBotBanner2;;testBotBannerSlot2
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
+                         ;;testBotBannerSlot-tPage;test Bot Banner Slot;true;testExtraComponent
+                         ;;testBotBannerSlot2-tPage;test Bot Banner Slot2;true;testExtraComponent2

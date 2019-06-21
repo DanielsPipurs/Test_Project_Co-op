@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Jun 19, 2019 12:46:43 PM                    ---
+
  * ----------------------------------------------------------------
  */
 package com.stackextend.training.core.jalo;
@@ -11,6 +11,7 @@ import com.stackextend.training.core.jalo.ApparelProduct;
 import com.stackextend.training.core.jalo.ApparelSizeVariantProduct;
 import com.stackextend.training.core.jalo.ApparelStyleVariantProduct;
 import com.stackextend.training.core.jalo.ElectronicsColorVariantProduct;
+import com.stackextend.training.core.jalo.TestComponent;
 import de.hybris.platform.jalo.Item;
 import de.hybris.platform.jalo.Item.AttributeMode;
 import de.hybris.platform.jalo.JaloBusinessException;
@@ -148,6 +149,32 @@ public abstract class GeneratedTrainingCoreManager extends Extension
 	public ElectronicsColorVariantProduct createElectronicsColorVariantProduct(final Map attributeValues)
 	{
 		return createElectronicsColorVariantProduct( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public TestComponent createTestComponent(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( TrainingCoreConstants.TC.TESTCOMPONENT );
+			return (TestComponent)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating TestComponent : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public TestComponent createTestComponent(final Map attributeValues)
+	{
+		return createTestComponent( getSession().getSessionContext(), attributeValues );
 	}
 	
 	@Override

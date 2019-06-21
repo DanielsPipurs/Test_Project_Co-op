@@ -1,7 +1,6 @@
 /*
  * ----------------------------------------------------------------
- * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Jun 19, 2019 12:46:43 PM                    ---
+r
  * ----------------------------------------------------------------
  */
 package com.stackextend.training.facades.constants;

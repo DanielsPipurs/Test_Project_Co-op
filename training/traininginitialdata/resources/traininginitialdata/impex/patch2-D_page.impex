@@ -1,0 +1,26 @@
+$contentCatalog=electronicsContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$media=media(code, $contentCV);
+$siteResource=jar:de.hybris.platform.electronicsstore.constants.ElectronicsstoreConstants&/electronicsstore/import/sampledata/contentCatalogs/$contentCatalog
+
+INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;frontendTemplateName;restrictedPageTypes(code);active[default=true]
+                          ;;testPageTemplate;test Page Template;test/testLayoutPage;ContentPage;
+
+INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true][default='testPageTemplate'];validComponentTypes(code);compTypeGroup(code)
+                             ;testParagraph;;;wide
+
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
+                         ;;testContentPage;test Content Page;testPageTemplate;testCMSPage
+
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
+                   ;;testComponentMedia;$siteResource/images/banners/homepage/TestImg.png;;TestImg.png;;
+
+INSERT_UPDATE TestComponent;$contentCV[unique=true];uid[unique=true];name;compText;buttonText;img(code,$contentCV);&componentRef;url(&linkRef);
+                           ;;testComponent3;My Test Component;"1st Componet";"Button text";testComponentMedia;testComponent3;/trainingstorefront/electronics/en/testPage
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV)
+                         ;;testParagraphSlot-tPage;test Paragraph Slot;true;testComponent3
+
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='testPageTemplate'];contentSlot(uid,$contentCV)[unique=true]
+                                    ;;testParagraphSlot-tPage;testParagraph;;testParagraphSlot
+
